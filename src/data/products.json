@@ -1,7 +1,7 @@
 [
     {
         "name": "C5L MAX",
-        "avatar": "https://loremflickr.com/320/240/dog",
+        "avatar": "https://i.ibb.co/f0ZQVFL/c5L-max.png",
         "stock": 10,
         "category": "C",
         "id": "1",
@@ -9,7 +9,7 @@
     },
     {
         "name": "G71L",
-        "avatar": "https://loremflickr.com/320/240/dog",
+        "avatar": "https://i.ibb.co/CwfsZgg/G71L.png",
         "stock": 10,
         "category": "G",
         "id": "3",
@@ -17,7 +17,7 @@
     },
     {
         "name": "G71 PLUS",
-        "avatar": "https://loremflickr.com/320/240/dog",
+        "avatar": "https://i.ibb.co/2kmjNJm/G71-plus.png",
         "stock": 10,
         "category": "G",
         "id": "4",
@@ -25,7 +25,7 @@
     },
     {
         "name": "J9L",
-        "avatar": "https://loremflickr.com/320/240/dog",
+        "avatar": "https://i.ibb.co/KGCcv0z/J9L.png",
         "stock": 10,
         "category": "J",
         "id": "5",
