@@ -2,8 +2,11 @@
 
 export const ItemDetail = ({product}) => (
     <div>
-        <h1>{product.title}</h1>
+        <h2>{product.title}</h2>
         <img src={product.pictureUrl} />
-        <div>{product.stock}</div>
+        <h5>{product.description}</h5>
+        <h6>PRECIO AL CONTADO: ${product.price}</h6>
+
+        <div>Stock: {product.stock}</div>
     </div>
 )

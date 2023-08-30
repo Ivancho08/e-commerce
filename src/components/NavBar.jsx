@@ -7,7 +7,7 @@ import { CartWidget } from "./CartWidget";
 export const NavBar = () => (
     <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#inicio">Cellular Vibe</Navbar.Brand>
+          <Navbar.Brand href="/">Cellular Vibe</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Inicio</Nav.Link>
             <Nav.Link href="/category/C">Celulares Modelo C</Nav.Link>

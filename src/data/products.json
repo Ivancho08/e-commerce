@@ -2,7 +2,7 @@
     {
         "id": "1",
         "title": "C5L MAX",
-        "description": "",
+        "description": "Brillante y vívida pantalla de 5,7″ de alta resolución (Curved Display) 480 x 854 Resolución | 196ppi",
         "price": 66.978,
         "pictureUrl": "https://i.ibb.co/f0ZQVFL/c5L-max.png",
         "stock": 10,
@@ -12,7 +12,7 @@
     {
         "id": "2",
         "title": "G71L",
-        "description": "",
+        "description": " 6.5' HD+ Infinity 720 x 1600 Resolución | 270ppi",
         "price": 17.080,
         "pictureUrl": "https://i.ibb.co/CwfsZgg/G71L.png",
         "stock": 10,
@@ -22,7 +22,7 @@
     {
         "id": "3",
         "title": "G71 PLUS",
-        "description": "",
+        "description": "6.5' HD+ Infinity 720 x 1600 Resolución | 270ppi",
         "price": 102.480,
         "pictureUrl": "https://i.ibb.co/2kmjNJm/G71-plus.png",
         "stock": 10,
@@ -32,6 +32,7 @@
     {
         "id": "4",
         "title": "J9L",
+        "description": "6.0” 18:9 Curved GLASS DISPLAY",
         "price": 73.200,
         "pictureUrl": "https://i.ibb.co/KGCcv0z/J9L.png",
         "stock": 10,
