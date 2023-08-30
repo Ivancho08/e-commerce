@@ -18,7 +18,6 @@ export const ItemCount = () => {
         }
     }
 
-
     const onAdd = () => {
         alert(count)
     }

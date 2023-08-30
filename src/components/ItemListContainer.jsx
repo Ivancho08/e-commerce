@@ -1,40 +1,42 @@
 import { Container } from "react-bootstrap"
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { ItemList } from "./ItemList";
 import data from "../data/products.json";
 
 
 export const ItemListContainer = (props) => {
 
-    const [products, setPrducts] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const { id } = useParams();
+
 
     useEffect(() => {
         const promise = new Promise((resolve,reject) => {
             setTimeout(() => resolve(data), 2000);
-        })
+        });
 
-        promise.then(data => setPrducts(data))
-    }, [])
+        promise.then((data) => {
+            if(!id){
+                setProducts(data);
+            } else {
+               const productsFiltered = data.filter(product => product.category === id); 
+               setProducts(productsFiltered);
+            }
+            setLoading(false);
+        });
 
+    }, []);
+
+    if(loading) return <div>Cargando...</div>
 
     return (
         <Container className="mt-4">
             {props.greeting}
             <div>
-                {products.map(products => (
-                    <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={products.avatar} />
-                    <Card.Body>
-                      <Card.Title>{products.name}</Card.Title>
-                      <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                      </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                  </Card>
-                ))}
+                <ItemList products={products}/>
             </div>
         </Container>
     )
