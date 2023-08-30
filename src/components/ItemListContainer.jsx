@@ -35,7 +35,7 @@ export const ItemListContainer = (props) => {
     return (
         <Container className="mt-4">
             {props.greeting}
-            <div>
+            <div style={{display: "flex", flexWrap: "wrap"}}>
                 <ItemList products={products}/>
             </div>
         </Container>
