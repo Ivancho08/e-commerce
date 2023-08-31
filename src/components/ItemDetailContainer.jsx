@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import data from "../data/products.json";
 import { ItemDetail } from "./ItemDetail";
-import Spinner from 'react-bootstrap/Spinner';
+
 
 
 export const ItemDetailContainer = (props) => {
@@ -21,7 +21,7 @@ export const ItemDetailContainer = (props) => {
             
         })
         promise.then((data) => setPrduct(data))
-    }, []);
+    }, [id]);
 
     if(!product) return <div>Cargando...</div>;
 

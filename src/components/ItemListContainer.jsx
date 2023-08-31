@@ -28,7 +28,7 @@ export const ItemListContainer = (props) => {
             setLoading(false);
         });
 
-    }, []);
+    }, [id]);
 
     if(loading) return <div>Cargando...</div>
 
