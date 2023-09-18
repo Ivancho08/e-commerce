@@ -6,7 +6,7 @@
         "price": 66.978,
         "pictureUrl": "https://i.ibb.co/f0ZQVFL/c5L-max.png",
         "stock": 10,
-        "category": "C"
+        "categoryId": "C"
         
     },
     {
@@ -16,7 +16,7 @@
         "price": 17.080,
         "pictureUrl": "https://i.ibb.co/CwfsZgg/G71L.png",
         "stock": 10,
-        "category": "G"
+        "categoryId": "G"
         
     },
     {
@@ -26,7 +26,7 @@
         "price": 102.480,
         "pictureUrl": "https://i.ibb.co/2kmjNJm/G71-plus.png",
         "stock": 10,
-        "category": "G"
+        "categoryId": "G"
         
     },
     {
@@ -36,7 +36,7 @@
         "price": 73.200,
         "pictureUrl": "https://i.ibb.co/KGCcv0z/J9L.png",
         "stock": 10,
-        "category": "J"
+        "categoryId": "J"
         
     }
 

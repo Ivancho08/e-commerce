@@ -13,3 +13,12 @@ span {
   color: black;
   padding: 1rem;
 }
+
+.itemImg {
+  margin-top: auto;
+}
+
+.buttonDetail {
+  margin-bottom: auto;
+  margin-left: auto;
+}
