@@ -12,6 +12,7 @@ export const Item = ({product}) => (
         <Card.Text>
             {product.description}
             {product.price}
+            {`$${product.stock}`}
         </Card.Text>
         <ItemCount />
         <Link to={`/item/${product.id}`}>
