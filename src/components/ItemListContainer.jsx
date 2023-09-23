@@ -9,7 +9,6 @@ export const ItemListContainer = (props) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-
     useEffect(() => {
         const db = getFirestore();
         const refCollection = collection(db, "ItemCollection");
