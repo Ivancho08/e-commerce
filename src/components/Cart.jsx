@@ -1,7 +1,6 @@
 import { Container, Table } from "react-bootstrap";
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
-import Button from "react-bootstrap";
 import Form from "react-bootstrap/Form"
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
@@ -90,6 +89,7 @@ export const Cart = () => {
                         value={formValues.name}
                         type="text"
                         name="name"
+                        required 
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -99,6 +99,7 @@ export const Cart = () => {
                         value={formValues.email}
                         type="email"
                         name="email"
+                        required
                     />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -108,6 +109,7 @@ export const Cart = () => {
                         value={formValues.phone}
                         type="text"
                         name="phone"
+                        required
                     />
                 </Form.Group>
             </Form>
