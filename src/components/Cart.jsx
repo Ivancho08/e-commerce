@@ -1,16 +1,50 @@
 import { Container, Table } from "react-bootstrap";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
+import Button from "react-bootstrap";
+import Form from "react-bootstrap/Form"
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 
 export const Cart = () => {
-    const {items} = useContext(CartContext)
+    const [formValues, setFormValues] = useState ({
+        name: "",
+        phone: "",
+        email: "",
+    })
+    const { clear, items, removeItem} = useContext(CartContext)
     const total =() =>
-        productosAgregados.reduce(
+        items.reduce(
             (acumulador, valorActual) =>
-                acumulador + valorActual.quantity * valorActual.price,
+                acumulador + valorActual.quantity * valorActual.precio,
             0
         )
+    const handleChange = ev => {
+        setFormValues(prev => ({
+            ...prev,
+            [ev.target.name]: ev.target.value,
+        }))
+    }
+    const sendOrder = () => {
+        const order = {
+            buyer: formValues,
+            items,
+            total: total(),
+        }
+        const db = getFirestore()
+        const orderCollection = collection(db, "orders")
+        addDoc( orderCollection, order).then(({id}) => {
+            if (id) {
+                setFormValues({
+                    name: "",
+                    phone: "",
+                    email: "",
+                })
+                clear()
+                alert("Su orden: " + id + " ha sido completada!")
+            }
+        })
+    }
     return (
         <Container>
             <h1>Cart</h1>
@@ -29,6 +63,11 @@ export const Cart = () => {
                             <td>{item.nombre}</td>
                             <td>{item.precio}</td>
                             <td>{item.cuantity}</td>
+                            <td>
+                                <button onClick={() => removeItem(item.id)}>
+                                    Eliminar
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -42,6 +81,37 @@ export const Cart = () => {
                     </tr>
                 </tfoot>
             </Table>
+            <h2>Ingresar datos de Usuario</h2>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control 
+                        onChange={handleChange} 
+                        value={formValues.name}
+                        type="text"
+                        name="name"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control 
+                        onChange={handleChange} 
+                        value={formValues.email}
+                        type="email"
+                        name="email"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Telefono</Form.Label>
+                    <Form.Control 
+                        onChange={handleChange} 
+                        value={formValues.phone}
+                        type="text"
+                        name="phone"
+                    />
+                </Form.Group>
+            </Form>
+            <button onClick={sendOrder}>Comprar</button>
         </Container>
     )
 }
