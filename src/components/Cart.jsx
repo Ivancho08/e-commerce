@@ -15,9 +15,10 @@ export const Cart = () => {
     const total =() =>
         items.reduce(
             (acumulador, valorActual) =>
-                acumulador + valorActual.quantity * valorActual.precio,
+                acumulador + valorActual.quantity * valorActual.price,
             0
         )
+    const isEmptyCart = items.length === 0;
     const handleChange = ev => {
         setFormValues(prev => ({
             ...prev,
@@ -47,73 +48,76 @@ export const Cart = () => {
     return (
         <Container>
             <h1>Cart</h1>
-            <Table striped bordered hover variant="dark">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {items.map(item => (
-                        <tr key={item.id}>
-                            <td>{item.nombre}</td>
-                            <td>{item.precio}</td>
-                            <td>{item.cuantity}</td>
-                            <td>
-                                <button onClick={() => removeItem(item.id)}>
-                                    Eliminar
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td></td>
-                        <td>{total()}</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </Table>
-            <h2>Ingresar datos de Usuario</h2>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control 
-                        onChange={handleChange} 
-                        value={formValues.name}
-                        type="text"
-                        name="name"
-                        required 
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                        onChange={handleChange} 
-                        value={formValues.email}
-                        type="email"
-                        name="email"
-                        required
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Telefono</Form.Label>
-                    <Form.Control 
-                        onChange={handleChange} 
-                        value={formValues.phone}
-                        type="text"
-                        name="phone"
-                        required
-                    />
-                </Form.Group>
-            </Form>
-            <button onClick={sendOrder}>Comprar</button>
-        </Container>
+            {isEmptyCart ? (
+                <p>No hay productos en el Carrito</p>
+            ) : (
+                    <Table striped bordered hover variant="dark">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map(item => (
+                                <tr key={item.id}>
+                                    <td>{item.title}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>
+                                        <button onClick={() => removeItem(item.id)}>
+                                            Eliminar
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total</td>
+                                <td></td>
+                                <td></td>
+                                <td>{total()}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </Table>
+            )}
+                    <h2>Ingresar datos de Usuario</h2>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control 
+                                onChange={handleChange} 
+                                value={formValues.name}
+                                type="text"
+                                name="name"
+                                required  
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control 
+                                onChange={handleChange} 
+                                value={formValues.email}
+                                type="email"
+                                name="email"
+                                required 
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Telefono</Form.Label>
+                            <Form.Control 
+                                onChange={handleChange} 
+                                value={formValues.phone}
+                                type="text"
+                                name="phone"
+                                required
+                            />
+                        </Form.Group>
+                    </Form>
+                    <button onClick={sendOrder}>Comprar</button>
+                </Container>
     )
 }

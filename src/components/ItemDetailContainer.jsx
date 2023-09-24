@@ -10,12 +10,11 @@ export const ItemDetailContainer = (props) => {
     const {id} = useParams();
     useEffect(() => {
         const db = getFirestore();
-        const refDoc = doc(db, "itemCollection", id)
+        const refDoc = doc(db, "ItemCollection", id)
         getDoc(refDoc).then(snapshot => {
             setPrduct({ id: snapshot.id, ...snapshot.data()})
         }).finally(() => setLoading(false))
     }, [id])
-    console.log(product)
     if(loading) return <div>Cargando...</div>;
     return (
         <Container className="mt-4">
